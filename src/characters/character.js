@@ -52,7 +52,7 @@ export default class Character {
 
   damage(points) {
     if (this.health > 0) {
-      const resultHealth = this.health - points * (1 - this.defence / 100);
+      const resultHealth = Math.round(this.health - points * (1 - this.defence / 100));
       this.health = resultHealth > 0 ? resultHealth : 0;
     }
   }
