@@ -23,9 +23,3 @@ test.each(incorrectNames)(
     }).toThrow('Длина имени должна быть от 2 до 10 символов');
   },
 );
-
-// test('incorect assign type', () => {
-//   expect(() => {
-//     new Character('name', 'BlaBla');
-//   }).toThrow('Некорректный тип персонажа');
-// });
