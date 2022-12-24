@@ -1,15 +1,20 @@
 import Character from '../character';
 
-test('testing creating instance class Character with correct name', () => {
-  expect(new Character('blabla', 'BlaBla')).toEqual({
-    name: 'blabla',
-    type: 'BlaBla',
-    health: 100,
-    level: 1,
-    attack: undefined,
-    defence: undefined,
-  });
-});
+test.each(
+  ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'],
+)(
+  ('testing creating instance class Character with correct name and type %s'),
+  (characterType) => {
+    expect(new Character('blabla', characterType)).toEqual({
+      name: 'blabla',
+      type: characterType,
+      health: 100,
+      level: 1,
+      attack: undefined,
+      defence: undefined,
+    });
+  },
+);
 
 const incorrectNames = [
   ['to short name', 'a'],
@@ -20,12 +25,12 @@ test.each(incorrectNames)(
   (_, name) => {
     expect(() => {
       new Character(name, 'Bowman');
-    }).toThrow('Длинна имени должна быть от 2 до 10 символов');
+    }).toThrow('Длина имени должна быть от 2 до 10 символов');
   },
 );
 
-// test('incorect assign type', () => {
-//   expect(() => {
-//     new Character('name', 'BlaBla');
-//   }).toThrow('Некорректный тип персонажа');
-// });
+test('incorect assign type', () => {
+  expect(() => {
+    new Character('name', 'BlaBla');
+  }).toThrow('Некорректный тип персонажа');
+});
