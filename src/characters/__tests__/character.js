@@ -1,21 +1,5 @@
 import Character from '../character';
 
-// test.each(
-//   ['Bowman', 'Swordsman', 'Magician', 'Daemon', 'Undead', 'Zombie'],
-// )(
-//   ('testing creating instance class Character with correct name and type %s'),
-//   (characterType) => {
-//     expect(new Character('blabla', characterType)).toEqual({
-//       name: 'blabla',
-//       type: characterType,
-//       health: 100,
-//       level: 1,
-//       attack: undefined,
-//       defence: undefined,
-//     });
-//   },
-// );
-
 test('testing creating instance class Character with correct name', () => {
   expect(new Character('blabla', 'Bowman')).toEqual({
     name: 'blabla',
